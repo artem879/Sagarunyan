@@ -4,8 +4,6 @@ from math import pi
 import random
 
 class TREUGOLNIC:
-    """creates TREUGOLNIC based on the data provided in the \
-            class_data.conf"""
     def __init__(self, x, y, x1, y1, x2, y2):
         self.x_batch = []
         self.y_batch = []
