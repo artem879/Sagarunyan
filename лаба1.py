@@ -16,14 +16,7 @@ class TREUGOLNIC:
         self.batch_size = 6
         self.gen_class()
 
-    def gen_class(self):
-        for i in range(self.batch_size):
-            s, t = sorted([random.random(), random.random()])
-            u = 1 - t
-            x = u * self.x + t * (u * self.x1 + t * self.x2)
-            y = u * self.y + t * (u * self.y1 + t * self.y2)
-            self.x_batch.append(x)
-            self.y_batch.append(y)
+   
 
     def get_batch_data(self):
         return self.x_batch, self.y_batch 
