@@ -29,43 +29,39 @@ for i in range(len(dots)):
     else:
         y.append([dots[i][0], dots[i][1]])
 
-def Evklid(x, y):
+def Metrica_Ev(x, y):
     dist = []
     for i in range(len(x)):
         dist.append(math.sqrt(sum([(x[i][j] - y[i][j])**2 for j in range(len(x[i]))])))
     return dist
+print("Evklid ")
+print(Metrica_Ev(x, y))
+print("\n")
 
-def Manhattan(x, y):
+def Metrica_Manh(x, y):
     dist = []
     for i in range(len(x)):
         dist.append(sum([abs(x[i][j] - y[i][j]) for j in range(len(x[i]))]))
     return dist
+print("Manhattan ")
+print(Metrica_Manh(x, y))
+print("\n")
 
-def Ravnomern(x, y):
+def Metrica_Ravno(x, y):
     dist = []
     for i in range(len(x)):
         dist.append(max(x[i][j] - y[i][j] for j in range(len(x[i]))))
     return dist
+print("Ravnomern ")
+print(Metrica_Ravno(x, y))
+print("\n")
 
-def Minkovsk(x, y):
+def Metrica_Mink(x, y):
     dist = []
     for i in range(len(x)):
         dist.append((sum([(x[i][j] - y[i][j])**5 for j in range(len(x[i]))]))**(1/5))
     return dist
 
-
-print("Evklid Metric")
-print(Evklid(x, y))
-print("\n")
-
-print("Manhattan Metric")
-print(Manhattan(x, y))
-print("\n")
-
-print("Ravnomern Metric")
-print(Ravnomern(x, y))
-print("\n")
-
-print("Minkovsk Metric")
-print(Minkovsk(x, y))
+print("Minkovsk ")
+print(Metrica_Mink(x, y))
 print("\n")
