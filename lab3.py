@@ -2,7 +2,7 @@ import math
 
 f = open('data_batch.conf', 'r')
 k = 0
-dots = []
+points = []
 for line in f:
     line.replace("\n", "")
     if k % 4 == 0:
@@ -17,50 +17,50 @@ for line in f:
             if cn == -1:
                 l2[0] = float(l2[0]) * (-1)
                 l2[1] = float(l2[1]) * (-1)
-            dots.append([float(l2[0]), float(l2[1]), int(cn)])
+            points.append([float(l2[0]), float(l2[1]), int(cn)])
     k += 1
 
 x = []
 y = []
 
-for i in range(len(dots)):
-    if dots[i][2] == 1:
-        x.append([dots[i][0], dots[i][1]])
+for i in range(len(points)):
+    if points[i][2] == 1:
+        x.append([points[i][0], points[i][1]])
     else:
-        y.append([dots[i][0], dots[i][1]])
+        y.append([points[i][0], points[i][1]])
 
 def Metrica_Ev(x, y):
-    dist = []
+    rast = []
     for i in range(len(x)):
-        dist.append(math.sqrt(sum([(x[i][j] - y[i][j])**2 for j in range(len(x[i]))])))
-    return dist
+        rast.append(math.sqrt(sum([(x[i][j] - y[i][j])**2 for j in range(len(x[i]))])))
+    return rast
 print("Evklid ")
 print(Metrica_Ev(x, y))
 print("\n")
 
 def Metrica_Manh(x, y):
-    dist = []
+    rast = []
     for i in range(len(x)):
-        dist.append(sum([abs(x[i][j] - y[i][j]) for j in range(len(x[i]))]))
-    return dist
+        rast.append(sum([abs(x[i][j] - y[i][j]) for j in range(len(x[i]))]))
+    return rast
 print("Manhattan ")
 print(Metrica_Manh(x, y))
 print("\n")
 
 def Metrica_Ravno(x, y):
-    dist = []
+    rast = []
     for i in range(len(x)):
-        dist.append(max(x[i][j] - y[i][j] for j in range(len(x[i]))))
-    return dist
+        rast.append(max(x[i][j] - y[i][j] for j in range(len(x[i]))))
+    return rast
 print("Ravnomern ")
 print(Metrica_Ravno(x, y))
 print("\n")
 
 def Metrica_Mink(x, y):
-    dist = []
+    rast = []
     for i in range(len(x)):
-        dist.append((sum([(x[i][j] - y[i][j])**5 for j in range(len(x[i]))]))**(1/5))
-    return dist
+        rast.append((sum([(x[i][j] - y[i][j])**5 for j in range(len(x[i]))]))**(1/5))
+    return rast
 
 print("Minkovsk ")
 print(Metrica_Mink(x, y))
